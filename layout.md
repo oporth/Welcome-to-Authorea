@@ -1,3 +1,6 @@
 introduction.tex
+rmhd.tex
+observations.tex
+problems.tex
 untitled.tex
 section_Recent_observational_results_of__.tex
