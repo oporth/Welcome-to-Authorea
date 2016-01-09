@@ -3,4 +3,4 @@ rmhd.tex
 observations.tex
 problems.tex
 untitled.tex
-section_Recent_observational_results_of__.tex
+section_Solved_and_unsolved_problems__.tex
