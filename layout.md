@@ -7,4 +7,5 @@ figures/emission_map/emission_map.png
 figures/all_curves/all_curves.png
 rmhd.tex
 observations.tex
+figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 problems.tex
