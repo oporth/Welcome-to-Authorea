@@ -7,6 +7,7 @@ figures/emission_map/emission_map.png
 figures/all_curves/all_curves.png
 rmhd.tex
 figures/ts1/ts1.png
+Plot_of_the_flow_structure__.tex
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
