@@ -5,8 +5,8 @@ figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-con
 figures/ls5039_full_light/ls5039_full_light.png
 figures/emission_map/emission_map.png
 figures/all_curves/all_curves.png
-rmhd.tex
 figures/ts_1/ts_1.png
+rmhd.tex
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
