@@ -6,7 +6,6 @@ figures/ls5039_full_light/ls5039_full_light.png
 figures/emission_map/emission_map.png
 figures/all_curves/all_curves.png
 rmhd.tex
-figures/ts_1/ts_1.png
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
