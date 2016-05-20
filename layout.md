@@ -6,6 +6,7 @@ figures/ls5039_full_light/ls5039_full_light.png
 figures/emission_map/emission_map.png
 figures/all_curves/all_curves.png
 rmhd.tex
+section_Wisps_as_probes_of__.tex
 figures/ts1/ts1.png
 figures/case13-mod1/case13-mod1.png
 figures/cfr-cases/cfr-cases.png
