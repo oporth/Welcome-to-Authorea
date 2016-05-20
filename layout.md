@@ -12,4 +12,5 @@ figures/cfr-cases/cfr-cases.png
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
+subsection_The_inner_knot_AR__.tex
 problems.tex
