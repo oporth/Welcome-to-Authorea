@@ -4,8 +4,8 @@ figures/gamma_binary3/gamma_binary3.png
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 figures/ls5039_full_light/ls5039_full_light.png
 figures/emission_map/emission_map.png
-figures/all_curves/all_curves.png
 rmhd.tex
+figures/all_curves/all_curves.png
 section_Wisps_as_probes_of__.tex
 figures/ts1/ts1.png
 figures/case13-mod1/case13-mod1.png
@@ -13,5 +13,4 @@ figures/cfr-cases/cfr-cases.png
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
-subsection_The_inner_knot_AR__.tex
 problems.tex
