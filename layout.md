@@ -1,7 +1,7 @@
 Hi_and_welcome_to_our__.tex
 introduction.tex
-figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 rmhd.tex
+figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 figures/gamma_binary3/gamma_binary3.png
 figures/ls5039_full_light/ls5039_full_light.png
 figures/emission_map/emission_map.png
