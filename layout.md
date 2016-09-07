@@ -1,4 +1,5 @@
 Hi_and_welcome_to_our__.tex
+tableofcontents__.tex
 introduction.tex
 rmhd.tex
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
