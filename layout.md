@@ -1,7 +1,6 @@
 Hi_and_welcome_to_our__.tex
 tableofcontents__.tex
 introduction.tex
-figures/rescomp/rescomp.png
 section_RMHD_Models_of_PWN__.tex
 rmhd.tex
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
