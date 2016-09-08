@@ -1,4 +1,60 @@
 \section{RMHD Models of PWN}
 \label{sec:rmhd}
 \subsection{Simulating the plasma flow         (SK, OP, AL, BO, EA)}
+PWN are customarily modeled under assumption of ideal magnetohydrodynamics (MHD).  Although the validity of the fluid approximation in PWN is not without question\footnote{For example, on the scale of the gyroradius for X-ray emitting particles, significant wisp-like substructure is observed which prompts for a more accurate description taking into account finit gyroradius effects (MHD+PIC).}, by upholding basic conservation laws a first insight into the physics can be attained.
+To estimate the plasma-parameters in the PWN, it is instructive to first study a 1D description of the wind flow.  Assuming the wind predominantly streams out in spherical r-direction, $\mathbf{B}=B_r\mathbf{\hat{e}}^r+B_\phi\mathbf{\hat{e}}^\phi$, $\mathbf{v}=v_r\mathbf{\hat{e}}^r+v_\phi\mathbf{\hat{e}}^\phi$, the relevant equations describing the flow are
+%
+\begin{align}
+  \partial_t(\Gamma \rho) + r^{-2} \partial_r(r^2\Gamma \rho v_r) &= 0 \label{eq:continuity} \\
+  \partial_t(\omega \Gamma^2 v_\phi + \mathcal{S}_\phi) + r^{-3}\partial_r(r^3(\omega v_\phi v_r \Gamma^2-B_\phi B_r)) &= 0 \label{eq:mphi}\\
+  \partial_t(E) + r^{-2}\partial_r(r^2 (\omega \Gamma^2 v_r + \mathcal{S}_r)) &= 0 \label{eq:energy} \\
+  \partial_t(B_\phi) + r^{-1}\partial_r(r E_\theta) &= 0 \label{eq:induction} \\
+  \partial_r(r^2 B_r) &= 0 \label{eq:divb}\ .
+\end{align}
+%
+Adopting an ideal equation of state with adiabatic index $\hat{\gamma}$ we write the enthalpy-density $\omega=\rho c^2+\hat{\gamma}/(\hat{\gamma}-1) p $.  In the above equations, the wind Poynting flux is given by $\mathbf{\mathcal{S}} = \mathbf{E \times B}$.
+In the limit of vanishing particle inertia $\omega\to 0$, \cite{1973ApJ...180L.133M} obtained an exact stationary solution to the above system:  In Michel's monopolar solution, field lines are confined to cones and describe a spiral with angle $\xi$ measured from the cylindrical direction $\tan \xi = r \Omega/c$.  So, moving away from the source, the magnetic field is slowly winding up.  
+
+Let's derive some useful relations for the stationary system, setting $\partial_t=0$.
+From the $\mathbf{\nabla\cdot B}=0$ constraint (\ref{eq:divb}), we immediately see that the radial field must decay as $B_r\propto r^{-2}$.    From the induction-law (\ref{eq:induction}) together with the ideal MHD electric field $E_\theta=B_\phi v_r-B_r v_\phi$ and $B_r\propto r^{-2}$, we obtain a first conservation law:
+\begin{align}
+  r\Omega \equiv v_\phi - v_r \frac{B_\phi}{B_r}
+\end{align}
+It describes the ``angular velocity of the field lines'' $\Omega$ and gives rise to the light cylinder radius $r_{\rm LC} = c/\Omega$.  Were the field-lines rigid radial wires sticking out of the spinning source, beyond the light-cylinder plasma would be forced to rotate faster than the speed of light.  This is circumvented by induction of a toroidal component $B_\phi$ and ``winding up'' of the field.  At the light-cylinder, we have $B_\phi\simeq B_r$.  
+Dividing the toroidal momentum-flux (\ref{eq:mphi}) by the particle rest-mass energy flux $r^2\Gamma \rho v_r c^2$ (\ref{eq:continuity}), we obtain the conserved angular momentum flux
+%
+\begin{align}
+  l \equiv \frac{\omega\Gamma r v_\phi}{\rho c^2}-\frac{r B_\phi}{k c^2}
+\end{align}
+with the ratio of matter to magnetic flux $k\equiv\rho v_r \Gamma / B_r$ that is also constant along a streamline.  For an accelerating wind close to the speed of light ($v_r\simeq c$) we now see that $B_\phi/B_r\simeq r/r_{LC}$ and the wind becomes dominated by the toroidal magnetic field.  Similarly, the wind rotation follows $v_\phi\propto r^{-1}$ and far away from the light-cylinder, the flow is well described by a purely radial velocity $v_r$ and an entirely toroidal magnetic field $B_\phi$.
+
+Dividing the energy flux (\ref{eq:energy}) by the rest-mass energy flux, the conserved quantity
+\begin{align}
+  \mu \equiv \frac{\omega \Gamma}{\rho c^2} + \frac{\mathcal{S}_r}{\Gamma \rho v_r c^2} = \Gamma (\omega/\rho c^2 + \sigma)
+\end{align}
+is recovered.  It is clear that the Lorentz factor of the wind cannot exceed the value of $\mu$.  In the latter equation we have introduced the magnetization or $\sigma$-parameter:
+\begin{align}
+  \sigma\equiv \mathcal{S}_r/(\Gamma^2\rho v_r c^2)
+\end{align}
+which compares the Poynting flux with the kinetic energy of the wind.  In the cold limit $\omega\to \rho c^2$, we have $\mu=\Gamma(1+\sigma)$ which shows that accelerating the wind goes hand-in-hand with decreasing its magnetization.
+
+As we shall see later, the value for $\sigma$ at the TS as inferred from 1D and 2D models is $\sigma\sim10^{-3}-10^{-2}$.  Quite in contrast, models for the pulsar magnetosphere predict highly magnetised plasma with $\sigma\sim10^3$ \citep[e.g.][and references therein]{arons2012}.  
+The conversion of magnetic energy to kinetic energy in both confined and unconfined winds has been a subject of intensive research.  EXPLAIN FAST SURFACE CONVERSION EFFICIENCY?
+Although claims have been made that the ideal MHD acceleration can provide the required energy conversion, \cite[e.g.][]{vlahakis2004}, it is now widely accepted that relativistic MHD flows are very inefficient accelerators \citep[e.g.][]{2009MNRAS.394.1182K,2009ApJ...699.1789T,lyubarsky2009,Lyubarsky2010} and can achieve $\sigma\approx1$ at best.  
+The discrepancy between $\sigma$ obtained via MHD acceleration of the unconfined wind and the magnetization inferred from PWN models is known as the $\sigma$-Problem.  
+
+In a stationary state, particle number conservation (\ref{eq:continuity}) yields for the plasma density
+
+\begin{align}
+  n=\kappa\ n_{\RM GJ} \left(\frac{R_{LC}}{R}\right)^2
+\end{align}
+where we have introduced as constants of proportionality the Goldreich-Julian density \citep{1969ApJ...157..869G} $n_{\rm GJ} = \frac{\Omega B_{\rm LC}}{2 \pi e c}$ measured at the light cylinder $R_{\RM LC}=c/\Omega$ and the plasma multiplicity parameter $\kappa$.  The multiplicity is a measure for the number of secondary electron positron pairs that is created for each seed electron in the Pulsar magnetosphere.
+
+ELABORATE ON MULTIPLICITY, also on ions.
+
+If we adopt typical values for the Pulsar wind: $B_{\rm TS}=1\rm m G$, $\Omega=30\rm Hz$, $R_{\rm TS}=10^8R_{\rm LC}$, the particle density at the TS becomes $n_{\rm TS} = \kappa\, 3\times 10^{-12}\rm cm^{-3}$.
+For the range of typically assumed multiplicities $\kappa=10^{4}-10^{8}$, we obtain an extremely tenous plasma.
+
+SHOCK JUMP AND Rees & Gunn model for the nebula flow.  MORE USEFUL 1D relations
+
 \subsection{Radiative predictions, from particle transport models      (OP, AL, EA)}
