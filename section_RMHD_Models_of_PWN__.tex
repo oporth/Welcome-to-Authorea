@@ -1,8 +1,31 @@
 \section{RMHD Models of PWN}
 \label{sec:rmhd}
 \subsection{Simulating the plasma flow         (SK, OP, AL, BO, EA)}
-PWN are customarily modeled under assumption of ideal magnetohydrodynamics (MHD).  Although the validity of the fluid approximation in PWN is not without question\footnote{For example, on the scale of the gyroradius for X-ray emitting particles, significant wisp-like substructure is observed which prompts for a more accurate description taking into account finit gyroradius effects (MHD+PIC).}, by upholding basic conservation laws a first insight into the physics can be attained.
-To estimate the plasma-parameters in the PWN, it is instructive to first study a 1D description of the wind flow.  Assuming the wind predominantly streams out in spherical r-direction, $\mathbf{B}=B_r\mathbf{\hat{e}}^r+B_\phi\mathbf{\hat{e}}^\phi$, $\mathbf{v}=v_r\mathbf{\hat{e}}^r+v_\phi\mathbf{\hat{e}}^\phi$, the relevant equations describing the flow are
+PWN are customarily modelled under assumption of ideal magnetohydrodynamics (MHD).  Although the validity of the fluid approximation in PWN is not without question\footnote{For example, on the scale of the gyroradius for X-ray emitting particles, significant wisp-like substructure is observed which prompts for a more accurate description taking into account finite gyroradius effects (MHD+PIC).}, by upholding basic conservation laws, a first insight into the physics can be attained.  We start with a brief review of the neutron star magnetosphere and then make our way out to the termination shock and PWN contact discontinuity. 
+
+In the magnetosphere, MHD can be applied if sufficient plasma is available to screen the electric field: $\mathbf{E\cdot B=0}$.  Seminal works of \cite{deutsch1955,1969ApJ...157..869G} indicate that this is a good working assumption as an electromagnetic cascade develops that fills the ``gaps'' of unscreened electric fields with freshly created pair-plasma CITE STURROCK 1971.  
+Due to the supply of conducting magnetospheric plasma, the early vacuum dipole models \citep[e.g.][]{pacini1967,Ostriker:1969} are not applicable, rather can the pulsar be thought of as a \emph{unipolar inductor} who's rotation drives a current system.  Torque from the $\mathbf{j\times B}$ Lorentz force of the current flowing parallel to  the neutron star surface serves to spin down the pulsar and extracts energy carried away in the form of Poynting flux.  
+In the limit that EM contributions are stronger than pressure, inertial and gravitational forces, plasma can be considered force-free, that is the EM forces balance exactly: 
+\begin{align}
+\frac{1}{c}\, \mathbf{j\times B}+\rho_e \mathbf{E}=0\ . \label{eq:force-free}
+\end{align}
+In this regime, an important exact solution was obtained by \cite{1973ApJ...180L.133M}.  In Michel's \emph{monopolar} solution, field lines are confined to cones in the $\varpi z$-planes and describe perfect Archimedean spirals in all $\varpi\phi$-planes ($\varpi$ is the cylindrical radius).  Moving away from the source, the magnetic field is thus progressively winding up with $B_\phi=B_0\varpi\Omega/c\ (r/r_0)^{-2}$, $B_r=B_0(r/r_0)^{-2}$ ($\Omega$ is the angular velocity of the central object).  The induced electric field is simply $E_\theta = \varpi \Omega/c B_r$ and we obtain a Poynting flux 
+%
+\begin{align}
+\mathcal{S}_r=\frac{c}{4\pi} \mathbf{E\times B} = \frac{\Omega^2 B_0^2 r_0^4 \sin^2\theta  }{4\pi r^2}\, . \label{eq:michelpower}
+\end{align}
+%
+The important point to note here is that the energy flux is highly anisotropic $\propto \sin^2\theta$, thus more energy is ejected in the equatorial direction.  
+Finally, 26 years after discovery of the monopolar magnetosphere, a solution to the at first glance unimposing equation (\ref{eq:force-free}) for more realistic \emph{dipolar} stellar field was obtained numerically by \cite{1999ApJ...511..351C}.  
+Most notably, the dipole field rips open at the light cylinder radius $\varpi_{\rm LC} = c/\Omega$ and a radial wind streams out similar to Michel's solution.  This general result for the aligned rotator has meanwhile been confirmed and improved on by many groups, e.g. \cite{2004MNRAS.349..213G,2005PhRvL..94b1101G,2006MNRAS.368L..30M}.  
+As the polarity of the dipole field reverses across hemispheres, so does the induced toroidal field, giving rise to an equatorial current-sheet.  Here, the ensuing dissipation violates the ideal MHD condition $\mathbf{E\cdot B=0}$ and also force-freeness must break down as magnetic dominance cannot be maintained.  
+The microphysics of the current sheet is a subject of active research REFERENCES
+
+FINALLY THE OBLIQUE MAGNETOSPHERE:
+\cite{spitkovsky2006} \cite{kalapotharakos2012} \cite{2016MNRAS.455.3779P} \cite{2016MNRAS.457.3384T}
+
+To estimate the plasma-parameters in the PWN, it is instructive to first study a 1D description of the wind flow.  
+Motivated by the success of Michel's solution, we assume that the wind predominantly streams out in spherical r-direction, $\mathbf{B}=B_r\mathbf{\hat{e}}^r+B_\phi\mathbf{\hat{e}}^\phi$, $\mathbf{v}=v_r\mathbf{\hat{e}}^r+v_\phi\mathbf{\hat{e}}^\phi$, the relevant equations describing the flow are
 %
 \begin{align}
   \partial_t(\Gamma \rho) + r^{-2} \partial_r(r^2\Gamma \rho v_r) &= 0 \label{eq:continuity} \\
@@ -13,14 +36,16 @@ To estimate the plasma-parameters in the PWN, it is instructive to first study a
 \end{align}
 %
 Adopting an ideal equation of state with adiabatic index $\hat{\gamma}$ we write the enthalpy-density $\omega=\rho c^2+\hat{\gamma}/(\hat{\gamma}-1) p $.  In the above equations, the wind Poynting flux is given by $\mathbf{\mathcal{S}} = \mathbf{E \times B}$.
-In the limit of vanishing particle inertia $\omega\to 0$, \cite{1973ApJ...180L.133M} obtained an exact stationary solution to the above system:  In Michel's monopolar solution, field lines are confined to cones and describe a spiral with angle $\xi$ measured from the cylindrical direction $\tan \xi = r \Omega/c$.  So, moving away from the source, the magnetic field is slowly winding up.  
 
 Let's derive some useful relations for the stationary system, setting $\partial_t=0$.
 From the $\mathbf{\nabla\cdot B}=0$ constraint (\ref{eq:divb}), we immediately see that the radial field must decay as $B_r\propto r^{-2}$.    From the induction-law (\ref{eq:induction}) together with the ideal MHD electric field $E_\theta=B_\phi v_r-B_r v_\phi$ and $B_r\propto r^{-2}$, we obtain a first conservation law:
 \begin{align}
-  r\Omega \equiv v_\phi - v_r \frac{B_\phi}{B_r}
+  r\Omega \equiv v_\phi - v_r \frac{B_\phi}{B_r} \label{eq:romega}
 \end{align}
-It describes the ``angular velocity of the field lines'' $\Omega$ and gives rise to the light cylinder radius $r_{\rm LC} = c/\Omega$.  Were the field-lines rigid radial wires sticking out of the spinning source, beyond the light-cylinder plasma would be forced to rotate faster than the speed of light.  This is circumvented by induction of a toroidal component $B_\phi$ and ``winding up'' of the field.  At the light-cylinder, we have $B_\phi\simeq B_r$.  
+It means that the rotation of the central object  $\Omega$  is conserved as ``angular velocity of the field lines''.  
+Equation (\ref{eq:romega}) can serve to visualise two previously mentioned aspects of the pulsar magnetosphere:  1. In Michel's solution, were the field-lines rigid radial wires sticking out of the spinning source, beyond the light-cylinder plasma would be forced to rotate faster than the speed of light.  This is circumvented by induction of a toroidal component $B_\phi$ and winding up of the field.  2. In the closed dipolar magnetosphere, as $v_r=0$ in the equator, again we would also obtain $v_\phi>c$, thus field lines crossing the light-cylinder must be open.  
+Furthermore, from (\ref{eq:romega}) we can estimate that at the light-cylinder $B_\phi\simeq B_r$.  
+
 Dividing the toroidal momentum-flux (\ref{eq:mphi}) by the particle rest-mass energy flux $r^2\Gamma \rho v_r c^2$ (\ref{eq:continuity}), we obtain the conserved angular momentum flux
 %
 \begin{align}
@@ -46,15 +71,14 @@ The discrepancy between $\sigma$ obtained via MHD acceleration of the unconfined
 In a stationary state, particle number conservation (\ref{eq:continuity}) yields for the plasma density
 
 \begin{align}
-  n=\kappa\ n_{\RM GJ} \left(\frac{R_{LC}}{R}\right)^2
+  n=\kappa\ n_{\rm GJ} \left(\frac{R_{LC}}{R}\right)^2
 \end{align}
-where we have introduced as constants of proportionality the Goldreich-Julian density \citep{1969ApJ...157..869G} $n_{\rm GJ} = \frac{\Omega B_{\rm LC}}{2 \pi e c}$ measured at the light cylinder $R_{\RM LC}=c/\Omega$ and the plasma multiplicity parameter $\kappa$.  The multiplicity is a measure for the number of secondary electron positron pairs that is created for each seed electron in the Pulsar magnetosphere.
+where we have introduced as constants of proportionality the Goldreich-Julian density \citep{1969ApJ...157..869G} $n_{\rm GJ} = \frac{\Omega B_{\rm LC}}{2 \pi e c}$ measured at the light cylinder $R_{\rm LC}=c/\Omega$ and the plasma multiplicity parameter $\kappa$.  The multiplicity is a measure for the number of secondary electron positron pairs that is created for each seed electron in the Pulsar magnetosphere.
 
 ELABORATE ON MULTIPLICITY, also on ions.
 
 If we adopt typical values for the Pulsar wind: $B_{\rm TS}=1\rm m G$, $\Omega=30\rm Hz$, $R_{\rm TS}=10^8R_{\rm LC}$, the particle density at the TS becomes $n_{\rm TS} = \kappa\, 3\times 10^{-12}\rm cm^{-3}$.
-For the range of typically assumed multiplicities $\kappa=10^{4}-10^{8}$, we obtain an extremely tenous plasma.
+For the range of typically assumed multiplicities $\kappa=10^{4}-10^{8}$, we obtain an extremely tenous plasma.  
 
-SHOCK JUMP AND Rees & Gunn model for the nebula flow.  MORE USEFUL 1D relations
 
 \subsection{Radiative predictions, from particle transport models      (OP, AL, EA)}
