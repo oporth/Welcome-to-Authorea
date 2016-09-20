@@ -110,12 +110,22 @@ Discuss the downstream flow and how it bends towards the equator/poles depending
 
 \subsection{Nebula}
 
+The stationary solutions of the system (\ref{eq:continuity} - \ref{eq:induction}) in the toroidal approximation were exhaustively studied by \cite{1984ApJ...283..694K}.  They showed that assuming the wind is ultra relativistic $\Gamma_1\gg1$ and expands adiabatically after encountering a strong shock, e.g. $\Gamma_1\gg\Gamma_2$, $\hat{\gamma}=4/3$, the flow can be parametrised entirely in terms of the upstream $\sigma$.  
+The asymptotic flow velocity in the shocked nebula then becomes
+\begin{align}
+v_{\infty} = \frac{\sigma}{1+\sigma} c
+\end{align}
+and hence it is clear that the boundary condition $v_{\rm n}\approx 2000 \rm km\, s^{-1}$ could only be satisfied by requiring low values of $\sigma<10^{-2}$.  
+Going further, assuming we indeed have a weakly magnetised wind, the large sound-speed in the shocked bubble will quickly equilibrate density and pressure and thus (\ref{eq:continuity}) implies $v_r\propto r^{-2}$ after crossing over the TS.  Then, from (\ref{eq:induction}), we find $B_\phi\propto r$.  The initially sub-dominant magnetic energy increases rapidly until equipartition with the thermal energy is obtained.  From then on, since $v_r(r)>v_{\infty}$ the velocity approaches a constant value and the magnetic energy decreases again $B_\phi\propto 1/r$.  
+This dynamic behaviour further tightens the limit on $\sigma$ in the toroidal approximation, e.g. \cite{1984ApJ...283..694K} obtained a best fit to the observed boundary conditions of Crab nebula for $\sigma\simeq 0.003$.  
+
+An additional argument for low magnetisation of the injected wind was put forward by \cite{1974MNRAS.167....1R}:  Ignoring the spin-down of the pulsar for the moment, each turn adds one ``loop'' of magnetic field and magnetic flux conservation implies $B_\phi\sim t$.  Thus for the magnetic energy accumulated in the nebula we have $\mathcal{E}_{\rm mag}\sim t^2$.  At the same time, particle energy is injected at constant rate $\mathcal{E}_{\rm part}\sim t$. In order to arrive at todays approximate equipartition $\mathcal{E}_{\rm mag}\sim\mathcal{E}_{\rm part}$ (and accounting for nebula expansion and spin down of the pulsar), \cite{1974MNRAS.167....1R} estimate a wind magnetisation of $\sigma\approx0.01$.
+
+The elegance and simplicity of the \cite{1984ApJ...283..694K} model and the \cite{1974MNRAS.167....1R} argument renders KC models a standard tool to recover parameters of observed PWN \citep[e.g.][]{sefakodeJager2003,PetreHwang2007} although there are significant problems in reproducing the X-ray spectral index maps of several PWN \citep{reynolds2003,tang2012,NynkaHailey2014,PorthVorster2016}.  
+
+
 My plans for this section are as follows:
 \begin{itemize}
-\item
-Use the toroidal approximation to demonstrate the accumulation of flux in the Nebula following Rees \& Gunn
-\item
-Demonstrate how the toroidal approximation leads to an estimate for sigma (KC)
 \item
 Finally, discuss 3D models:
 \item
