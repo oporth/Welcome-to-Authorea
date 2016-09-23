@@ -4,6 +4,7 @@ introduction.tex
 figures/rescomp1/rescomp1.png
 section_RMHD_Models_of_PWN__.tex
 figures/bfield_orient_label white/bfield_orient_label white.png
+figures/sigma/sigma.png
 rmhd.tex
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 figures/gamma_binary3/gamma_binary3.png
