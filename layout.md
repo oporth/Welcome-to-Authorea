@@ -20,5 +20,5 @@ observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
 subsection_Recent_theoretical_studies_of__.tex
-subsection_The_inner_knot_AR__1.tex
+subsection_Observational_results_of_the__.tex
 problems.tex
