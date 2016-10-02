@@ -6,6 +6,7 @@ section_RMHD_Models_of_PWN__.tex
 figures/bfield_orient_label white/bfield_orient_label white.png
 figures/sigma/sigma.png
 figures/global-combined/global-combined.png
+figures/maps-combined/maps-combined.png
 rmhd.tex
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 figures/gamma_binary3/gamma_binary3.png
