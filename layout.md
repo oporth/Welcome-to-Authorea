@@ -7,7 +7,6 @@ figures/bfield_orient_label white/bfield_orient_label white.png
 figures/sigma/sigma.png
 figures/global-combined/global-combined.png
 figures/maps-combined/maps-combined.png
-rmhd.tex
 section_Wisps_as_probes_of__.tex
 figures/ts1/ts1.png
 figures/case13-mod1/case13-mod1.png
