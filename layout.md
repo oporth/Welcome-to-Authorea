@@ -26,4 +26,5 @@ figures/hst/hst.png
 The_discovery_of_the_jet__.tex
 The_first_computer_generated_models__.tex
 One_of_the_most_prominent__.tex
+Once_we_had_understood_the__.tex
 problems.tex
