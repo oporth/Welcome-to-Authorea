@@ -31,4 +31,5 @@ Once_we_had_understood_the__.tex
 A_couple_of_attempts_have__.tex
 The_deduced_low_sigma_is__.tex
 Using_the_Doppler_beamed_post__.tex
+The_shape_of_the_knot__.tex
 problems.tex
