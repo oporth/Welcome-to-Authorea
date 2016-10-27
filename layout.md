@@ -8,11 +8,6 @@ figures/sigma/sigma.png
 figures/global-combined/global-combined.png
 figures/maps-combined/maps-combined.png
 rmhd.tex
-figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
-figures/gamma_binary3/gamma_binary3.png
-figures/ls5039_full_light/ls5039_full_light.png
-figures/emission_map/emission_map.png
-figures/all_curves/all_curves.png
 section_Wisps_as_probes_of__.tex
 figures/ts1/ts1.png
 figures/case13-mod1/case13-mod1.png
@@ -22,6 +17,11 @@ figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
 subsection_Theory_The_Crab_nebula__.tex
 subsection_gamma_ray_binaries_puzzling__.tex
+figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
+figures/gamma_binary3/gamma_binary3.png
+figures/ls5039_full_light/ls5039_full_light.png
+figures/emission_map/emission_map.png
+figures/all_curves/all_curves.png
 section_Inner_knot_of_the__.tex
 figures/hst/hst.png
 The_discovery_of_the_jet__.tex
