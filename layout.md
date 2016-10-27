@@ -23,6 +23,7 @@ figures/knot_sed/knot_sed.png
 subsection_Theory_The_Crab_nebula__.tex
 section_Inner_knot_of_the__.tex
 figures/hst/hst.png
+The_knot_does_not_seem__.tex
 The_discovery_of_the_jet__.tex
 The_first_computer_generated_models__.tex
 One_of_the_most_prominent__.tex
