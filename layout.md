@@ -33,6 +33,7 @@ A_couple_of_attempts_have__.tex
 The_deduced_low_sigma_is__.tex
 figures/f7/f7.png
 Using_the_Doppler_beamed_post__.tex
+figures/f8/f8.png
 The_shape_of_the_knot__.tex
 In_these_calculations_it_was__.tex
 problems.tex
