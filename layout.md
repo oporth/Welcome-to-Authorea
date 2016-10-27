@@ -2,7 +2,7 @@ Hi_and_welcome_to_our__.tex
 tableofcontents__.tex
 introduction.tex
 figures/rescomp1/rescomp1.png
-subsection_Radiative_predictions_from_particle__.tex
+section_RMHD_Models_of_PWN__.tex
 figures/bfield_orient_label white/bfield_orient_label white.png
 figures/sigma/sigma.png
 figures/global-combined/global-combined.png
