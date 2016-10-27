@@ -23,5 +23,5 @@ figures/knot_sed/knot_sed.png
 subsection_Theory_The_Crab_nebula__.tex
 section_Inner_knot_of_the__.tex
 figures/hst/hst.png
-he_discovery_of_the_jet__.tex
+The_discovery_of_the_jet__.tex
 problems.tex
