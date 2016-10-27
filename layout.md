@@ -15,7 +15,7 @@ observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
 subsection_Theory_The_Crab_nebula__.tex
-subsection_gamma_ray_binaries_puzzling__.tex
+section_Gamma_ray_binaries_pulsar__.tex
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 figures/gamma_binary3/gamma_binary3.png
 figures/ls5039_full_light/ls5039_full_light.png
