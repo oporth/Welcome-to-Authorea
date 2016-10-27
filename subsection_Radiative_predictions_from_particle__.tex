@@ -1,25 +1,191 @@
+
+\section{RMHD Models of PWN}
+\label{sec:rmhd}
+\subsection{Simulating the plasma flow         (SK, OP, AL, BO, EA)}
+PWN are customarily modelled under assumption of ideal magnetohydrodynamics (MHD).  Although the validity of the fluid approximation in PWN is not without question\footnote{For example, on the scale of the gyroradius for X-ray emitting particles, significant wisp-like substructure is observed which prompts for a more accurate description taking into account finite gyroradius effects (MHD+PIC).}, by upholding basic conservation laws, a first insight into the physics can be attained.  We start with a brief review of the neutron star magnetosphere and then make our way out to the termination shock and PWN contact discontinuity. 
+
+\subsection{Magnetosphere}
+
+MHD can be applied if sufficient plasma is available to screen the electric field: $\mathbf{E\cdot B=0}$.  Seminal works of \cite{deutsch1955,1969ApJ...157..869G} indicate that this is a good working assumption as an electromagnetic cascade develops that fills the ``gaps'' of unscreened electric fields with freshly created pair-plasma \citep{Sturrock1971}.  
+The number density of pairs divided by the minimal density required to screen the electric fields in the co-moving frame is known as pulsar multiplicity $\kappa$.  
+Due to the supply of conducting magnetospheric plasma, the early vacuum oblique dipole models \citep[e.g.][]{pacini1967,Ostriker:1969} are not applicable, rather can the pulsar be thought of as a \emph{unipolar inductor} whose rotation drives a current system.  Torque from the $\mathbf{j\times B}$ Lorentz force of the current flowing parallel to  the neutron star surface serves to spin down the pulsar and extracts energy carried away in the form of Poynting flux.  
+In the limit that EM contributions are stronger than pressure, inertial and gravitational forces, plasma can be considered force-free, that is the EM forces balance exactly: 
+\begin{align}
+\frac{1}{c}\, \mathbf{j\times B}+\rho_e \mathbf{E}=0\ . \label{eq:force-free}
+\end{align}
+In this regime, an important exact solution was obtained by \cite{1973ApJ...180L.133M}.  In Michel's \emph{monopolar} solution, field lines are confined to cones in the $\varpi z$-planes and describe perfect Archimedean spirals in all $\varpi\phi$-planes ($\varpi$ is the cylindrical radius).  Moving away from the source, the magnetic field is thus progressively winding up with $B_\phi=B_0\varpi\Omega/c\ (r/r_0)^{-2}$, $B_r=B_0(r/r_0)^{-2}$ ($\Omega$ is the angular velocity of the central object).  The induced electric field is simply $E_\theta = \varpi \Omega B_r/c$ and we obtain a Poynting flux 
+%
+\begin{align}
+\mathcal{S}_r=\frac{c}{4\pi} \mathbf{E\times B} = \frac{\Omega^2 B_0^2 r_0^4 \sin^2\theta  }{4\pi r^2}\, . \label{eq:michelpower}
+\end{align}
+%
+The important point to note here is that the energy flux is highly anisotropic $\propto \sin^2\theta$, thus more energy is ejected in the equatorial direction.  
+After long struggle, a solution to the at first glance unimposing equation (\ref{eq:force-free}) for more realistic \emph{dipolar} stellar field was obtained numerically by \cite{1999ApJ...511..351C}.  
+Most notably, the dipole field rips open at the light cylinder radius $\varpi_{\rm LC} = c/\Omega$ and a radial wind streams out similar to Michel's solution i.e. with $\mathcal{S}_r\propto \sin^2\theta$.  This general result for the aligned rotator has been confirmed and improved on by many groups \citep{2004MNRAS.349..213G,2005PhRvL..94b1101G,2006MNRAS.368L..30M,ParfreyBeloborodov2012,RuizPaschalidis2014}.  
+As the polarity of the dipole field reverses across hemispheres, so does the wound-up toroidal field, giving rise to an equatorial current-sheet.  The ensuing dissipation violates the ideal MHD condition $\mathbf{E\cdot B=0}$ and also force-freeness must break down locally as magnetic dominance cannot be maintained.  
+It was noted already by \cite{coroniti1990} that the current sheet can play an important role in the dynamics of the wind as a whole.  In case the magnetic axis is mis-aligned with the pulsar (oblique rotator), the current-sheet assumes a wavy or \emph{striped}-shape.  Dissipation, dynamics and particle acceleration of the striped wind is subject to active research and worthy of a review of its own \citep[see ][]{arons2012}.  We shall return to this issue below.  
+
+The first force-free model of an \emph{oblique} dipole magnetosphere was presented by \cite{spitkovsky2006} and has been confirmed by several groups and methodologies \citep{kalapotharakos2012,2016MNRAS.455.3779P,2016MNRAS.457.3384T}.  Its salient features are the complex geometry of the  striped wind \citep[as predicted by][]{Michel1971} and the dependence of the spin-down power on the obliquity angle $\alpha$
+\begin{align}
+L = k_1 \frac{\mu^2 \Omega^4}{c^3}(1+k_2\sin^2 \alpha) \label{eq:oblique-spindown}
+\end{align}
+Here $\mu=B_p r^{\star3}/2$ is the magnetic moment of the star ($B_p$ measured at the poles) and $k_1=1 \pm 0.05$, $k_2 =1\pm 0.1$ were obtained by fitting to the numerical simulations.  Following Eq. (\ref{eq:oblique-spindown}), oblique pulsars emit up to twice as much wind-power as aligned rotators.  Concerning the distribution of wind power in the orthogonal case, one obtains 
+\begin{align}
+\langle \mathcal{S}_r\rangle_\phi^{90^\circ} \approx \frac{\Omega^2 B_0^2 r_0^4 \sin^4\theta}{8\pi r^2} \label{eq:obliquesr}
+\end{align}
+where the extra factor of $\sin^2\theta$ comes from bunching of radial field in the equatorial regions.  Semi-analytic formulae for intermediate cases were presented by \cite{2016MNRAS.457.3384T}.  
+
+Recent global particle-in-cell (PIC) simulations now confirm that given sufficient plasma supply, the magnetosphere adopts a near force free configuration consistent with the fluid models \citep{PhilippovSpitkovsky2014,ChenBeloborodov2014,Belyaev2015,CeruttiPhilippov2015} showing that the above predictions are likely robust.  
+
+\subsection{Wind zone}
+
+To estimate the plasma-parameters in the PWN, it is instructive to first study a 1D description of the wind flow.  
+Motivated by the success of Michel's solution, we assume that the wind predominantly streams out in spherical r-direction, $\mathbf{B}=B_r\mathbf{\hat{e}}^r+B_\phi\mathbf{\hat{e}}^\phi$, $\mathbf{v}=v_r\mathbf{\hat{e}}^r+v_\phi\mathbf{\hat{e}}^\phi$, the relevant equations describing the flow are
+%
+\begin{align}
+  \partial_t(\Gamma \rho) + r^{-2} \partial_r(r^2\Gamma \rho v_r) &= 0 \label{eq:continuity} \\
+  \partial_t(\omega \Gamma^2 v_\phi + \mathcal{S}_\phi) + r^{-3}\partial_r(r^3(\omega v_\phi v_r \Gamma^2-B_\phi B_r)) &= 0 \label{eq:mphi}\\
+  \partial_t(E) + r^{-2}\partial_r(r^2 (\omega \Gamma^2 v_r + \mathcal{S}_r)) &= 0 \label{eq:energy} \\
+  \partial_t(B_\phi) + r^{-1}\partial_r(r E_\theta) &= 0 \label{eq:induction} \\
+  \partial_r(r^2 B_r) &= 0 \label{eq:divb}\ .
+\end{align}
+%
+Adopting an ideal equation of state with adiabatic index $\hat{\gamma}$ we write the enthalpy-density $\omega=\rho c^2+\hat{\gamma}/(\hat{\gamma}-1) p $.  In the above equations, the wind Poynting flux is given by $\mathbf{\mathcal{S}} = \mathbf{E \times B}$.
+
+Let's derive some useful relations for the stationary system, setting $\partial_t=0$.
+From the $\mathbf{\nabla\cdot B}=0$ constraint (\ref{eq:divb}), we immediately see that the radial field must decay as $B_r\propto r^{-2}$.    From the induction-law (\ref{eq:induction}) together with the ideal MHD electric field $E_\theta=B_\phi v_r-B_r v_\phi$ and $B_r\propto r^{-2}$, we obtain a first conservation law:
+\begin{align}
+  r\Omega \equiv v_\phi - v_r \frac{B_\phi}{B_r} \label{eq:romega}
+\end{align}
+It means that the rotation of the central object  $\Omega$  is conserved as ``angular velocity of the field lines''.  
+Equation (\ref{eq:romega}) can serve to visualise two previously mentioned aspects of the pulsar magnetosphere:  1. In Michel's solution, were the field-lines rigid radial wires sticking out of the spinning source, beyond the light-cylinder plasma would be forced to rotate faster than the speed of light.  This is circumvented by induction of a toroidal component $B_\phi$ and winding up of the field.  2. In the closed dipolar magnetosphere, as $v_r=0$ in the equator, again we would also obtain $v_\phi>c$, thus field lines crossing the light-cylinder must be open.  
+Furthermore, from (\ref{eq:romega}) we can estimate that at the light-cylinder $B_\phi\simeq B_r$.  
+
+Dividing the toroidal momentum-flux (\ref{eq:mphi}) by the particle rest-mass energy flux $r^2\Gamma \rho v_r c^2$ (\ref{eq:continuity}), we obtain the conserved angular momentum flux
+%
+\begin{align}
+  l \equiv \frac{\omega\Gamma r v_\phi}{\rho c^2}-\frac{r B_\phi}{k c^2}
+\end{align}
+with the ratio of matter to magnetic flux $k\equiv\rho v_r \Gamma / B_r$ that is also constant along a streamline.  For an accelerating wind close to the speed of light ($v_r\simeq c$) we now see that $B_\phi/B_r\simeq r/r_{LC}$ and the wind becomes dominated by the toroidal magnetic field.  Similarly, the wind rotation follows $v_\phi\propto r^{-1}$ and far away from the light-cylinder, the flow is well described by a purely radial velocity $v_r$ and an entirely toroidal magnetic field $B_\phi$.
+
+Dividing the energy flux (\ref{eq:energy}) by the rest-mass energy flux, the conserved quantity
+\begin{align}
+  \mu \equiv \frac{\omega \Gamma}{\rho c^2} + \frac{\mathcal{S}_r}{\Gamma \rho v_r c^2} = \Gamma (\omega/\rho c^2 + \sigma)
+\end{align}
+is recovered.  It is clear that the Lorentz factor of the wind cannot exceed the value of $\mu$.  In the latter equation we have introduced the magnetization or $\sigma$-parameter:
+\begin{align}
+  \sigma\equiv \mathcal{S}_r/(\Gamma^2\rho v_r c^2)
+\end{align}
+which compares the Poynting flux with the kinetic energy of the wind.  In the cold limit $\omega\to \rho c^2$, we have $\mu=\Gamma(1+\sigma)$ which shows that accelerating the wind goes hand-in-hand with decreasing its magnetization.
+
+As we shall see later, the value for $\sigma$ at the TS as inferred from 1D and 2D models is $\sigma\sim10^{-3}-10^{-2}$.  Quite in contrast, models for the pulsar magnetosphere predict highly magnetised plasma with $\sigma\sim10^3$ \citep[e.g.][and references therein]{arons2012}.  
+The conversion of magnetic energy to kinetic energy in both confined and unconfined winds has been a subject of intensive research.  
+Although claims have been made that the ideal MHD acceleration can provide the required energy conversion, \cite[e.g.][]{vlahakis2004}, it is now widely accepted that relativistic MHD flows are very inefficient accelerators \citep[e.g.][]{2009MNRAS.394.1182K,2009ApJ...699.1789T,lyubarsky2009,Lyubarsky2010} and can achieve $\sigma\approx1$ at best.  
+The discrepancy between $\sigma$ obtained via MHD acceleration of the unconfined wind and the magnetization inferred from PWN models is known as the $\sigma$-Problem.  
+
+\subsection{Termination shock}
+
+Like the solar wind, the pulsar wind terminates when its dynamic pressure equals the thermal pressure of the surrounding shocked medium, i.e. the pulsar wind nebula.  
+As the observations suggest very low magnetisation in the PWN, we will adopt a hydrodynamical model for some basic estimates.  A typical scale for ram-pressure balance is readily found: $r_0=\left(\frac{L}{4\pi p c}\right)^{1/2}$ with $p$ the pressure of the nebular plasma.  If energy is supplied to the PWN at a constant rate $L$ and its contact discontinuity evolves according to $r_{\rm n}(t)\propto t^{\alpha_{\rm r}}$ (where we will adopt $\alpha_{\rm r}=6/5$ \citep{Chevalier1977}), adiabatic expansion of the ultrarelativistic shocked PWN implies $\dot{E} = L-\alpha_{\rm r}\frac{E}{t}$.  Thus the energy accumulated over time in the PWN bubble is
+\begin{align}
+E= \frac{L t}{1+\alpha_{\rm r}}
+\end{align}
+with the initial condition $E(0)=0$. Assuming a uniform distribution of the PWN pressure $p=E/(4\pi r_{\rm n}^3)$ we find the scale of the TS
+\begin{align}
+r_0 = \frac{(1+\alpha_{\rm r})}{\alpha_{\rm r}} r_{\rm n}(v_{\rm n}/c)^{1/2}
+\label{eq:rtshydro}
+\end{align}
+Where $v_{\rm n}$ is the observed expansion speed of the nebula. In case of Crab, $v_{\rm n}\approx 2000 \rm km\, s^{-1}$ and using the observed nebula radius of  $r_{\rm n}=1.65\rm pc$ \citep{hester2008} we find the values $r_0=0.1 r_{\rm n}=0.17\rm pc$.  
+The very good match of this estimate with the extent of the X-ray inner ring $r_{\rm ir}\simeq 0.14\rm pc$ \citep{weisskopf2000}, seems too good to be coincidental which is why the inner ring is often identified directly with the location of the TS.   
+In terms of the light cylinder we have $r_0=5\times 10^8 \varpi_{\rm LC}$ which means that both rotation and radial magnetic field  are sub-dominant at the scale of the TS.  We will hence proceed in the ``toroidal approximation'': $v_\phi/c\approx 0$, $B_r/B_\phi \approx0$.  
+
+Given the anisotropy of the wind power (\ref{eq:michelpower}) and (\ref{eq:obliquesr}), the TS will attain pressure equilibrium at different locations:  
+Near the poles, the wind power steeply declines and the shock retreats back towards the pulsar.  In the equatorial plane where the wind power is maximal on the other hand, the shock will bulge out further.  This mechanism provides a simple explanation to the torus structure observed in many PWN \citep{lyubarsky2002}.   In SECTION YY, more detailed calculations concerning the shape of the oblique shock and radiative signatures of particles emitting close to the shock will be discussed.  
+
+Depending on their local wind magnetization, streamlines that pass over the shock behave qualitatively very different.  
+In high-$\sigma$ regions i.e. close to the axis, the flow can remain highly relativistic with downstream Lorentz factors larger than $\sigma^{1/2}$, the value obtained for the perpendicular shock.  For $\sigma\to\infty$, streamlines simply continue to flow out radially after traversing the shock.  In finite-$\sigma$ regions with non-vanishing shock compression, the force-free equilibrium of the wind is destroyed and flow-lines start curving towards the pole due to the pinch-force of the magnetic field.  This mechanism of jet formation due to the magnetic hoop-stress has been observed in axisymmetric \citep[e.g.][]{komissarov2003a} and full 3D simulations \citep[e.g.][]{PorthKomissarov2014a}.  
+In the low-sigma e.g. striped regions, due to the conservation (compression) of the tangential (normal) velocity fields, streamlines experience shock aberration and instead get  deflected towards the equatorial plane.  This leads to the occurrence of ``wisps'' emitted from the shock to be further discussed in (SECTION XX).  
+
+
+\subsection{Nebula}
+\label{sec:nebula}
+The stationary solutions of the system (\ref{eq:continuity} - \ref{eq:induction}) in the toroidal approximation were exhaustively studied by \cite{1984ApJ...283..694K}.  They showed that assuming the wind is ultra relativistic $\Gamma_1\gg1$ and expands adiabatically after encountering a strong shock, e.g. $\Gamma_1\gg\Gamma_2$, $\hat{\gamma}=4/3$, the flow can be parametrised entirely in terms of the upstream $\sigma$.  
+The asymptotic flow velocity in the shocked nebula then becomes
+\begin{align}
+v_{\infty} = \frac{\sigma}{1+\sigma} c
+\end{align}
+and hence it is clear that the boundary condition $v_{\rm n}\approx 2000 \rm km\, s^{-1}$ could only be satisfied by requiring low values of $\sigma<10^{-2}$.  
+Going further, assuming we indeed have a weakly magnetised wind, the large sound-speed in the shocked bubble will quickly equilibrate density and pressure and thus (\ref{eq:continuity}) implies $v_r\propto r^{-2}$ after crossing over the TS.  Then, from (\ref{eq:induction}), we find $B_\phi\propto r$.  The initially sub-dominant magnetic energy increases rapidly until equipartition with the thermal energy is obtained.  From then on, since $v_r(r)>v_{\infty}$ the velocity approaches a constant value and the magnetic energy decreases again $B_\phi\propto 1/r$.  
+This dynamic behaviour further tightens the limit on $\sigma$ in the toroidal approximation, e.g. \cite{1984ApJ...283..694K} obtained a best fit to the observed boundary conditions of Crab nebula for $\sigma\simeq 0.003$.  
+
+An additional argument for low magnetisation of the injected wind was put forward by \cite{1974MNRAS.167....1R}:  Ignoring the spin-down of the pulsar for the moment, each turn adds one ``loop'' of magnetic field and magnetic flux conservation implies $B_\phi\sim t$.  Thus for the magnetic energy accumulated in the nebula we have $\mathcal{E}_{\rm mag}\sim t^2$.  At the same time, particle energy is injected at constant rate $\mathcal{E}_{\rm part}\sim t$. In order to arrive at todays approximate equipartition $\mathcal{E}_{\rm mag}\sim\mathcal{E}_{\rm part}$ (and accounting for nebula expansion and spin down of the pulsar), \cite{1974MNRAS.167....1R} estimate a wind magnetisation of $\sigma\approx0.01$.
+
+
+The elegance and simplicity of the \cite{1984ApJ...283..694K} model and the \cite{1974MNRAS.167....1R} argument renders KC models a standard tool to recover parameters of observed PWN \citep[e.g.][]{sefakodeJager2003,PetreHwang2007} although there are significant problems in reproducing the X-ray spectral index maps of several PWN \citep{reynolds2003,tang2012,NynkaHailey2014,PorthVorster2016}.  
+These deficiencies, the uncomfortably small value of $\sigma$ and the obviously non-spherical \emph{jet and torus} morphology revealed by the Chandra X-ray telescope \citep{KargaltsevPavlov2008} make a strong case for multi-dimensional models of PWN.  
+To date, a number of groups have carried out axisymmetric relativistic MHD simulations of pulsar wind nebulae \citep{komissarov2003a,komissarov2004,del-zanna2004,bogovalov2005,camus2009,2014MNRAS.438.1518O}. Although rather different computer codes were employed, all these simulations produce quite similar results: the numerical solutions reproduce well the observed jet-torus structure and suggest dynamical explanations to the wisps (Section XX) and curious inner knot (Section YY).  
+
+
+Despite these successes, the axisymmetric models can not significantly lift the tension on the wind magnetisation parameter:  if $\sigma>0.1$, the termination shock is pushed far back to the pulsar and excessively strong jets develop that even punch through the nebula bubble \citep[e.g.][]{PorthKomissarov2013}.  
+Both effects are linked to the accumulating hoop stress caused by conservation of the toroidal magnetic flux.  
+In order to accommodate wind $\sigma\approx1$ with the observations, two additional ingredients are essential:  1. Destruction of hoop-stress via fluid instabilities (no more toroidal approximation) and 2. magnetic dissipation in the nebula volume.  
+
+The fact that the toroidal (z-pinch) equilibria used in the axisymmetric modelling \citep[e.g.][]{begelman1992} are unstable to the MHD kink instability was first discussed by \cite{begelman1998}.  
+The authors speculated that the disrupted configuration may be less demanding on the magnetization of pulsar winds. Indeed, one would expect the magnetic pressure due to randomized magnetic field to dominate the mean Maxwell stress tensor, and the adiabatic compression to have the same effect on the magnetic pressure as on the thermodynamic pressure of relativistic gas. Under such conditions, the global dynamics of PWN produced by high-$\sigma$ winds may not be that much different from those of PWN produced by particle-dominated winds. These expectations have received strong support from numerical studies \citep{Mizuno:2011aa} of the magnetic kink instability for the cylindrical magnetostatic configuration.  These simulations have shown a relaxation towards a quasi-uniform total pressure distribution inside the computational domain on a dynamical time-scale. 
+
+In addition to the dissipation of magnetic stripes in the wind or at the termination shock, the magnetic dissipation could occur inside PWN as well \citep{lyutikov2010c,komissarov2013}. In fact, the development of the kink instability near the axis and Kelvin-Helmholtz instabilities operating in the equatorial region \citep{camus2009} are bound to facilitate such dissipation. In principle, simultaneous observations of both the synchrotron and inverse-Compton emission allow a measurement of the energy distribution between the magnetic fields and the emitting electrons (and positrons). From a simple ``one-zone'' model of the Crab nebula, it follows that its magnetic energy is only a small fraction, $\sim1/30$, of the energy stored in the emitting particles (\cite{MeyerHorns2010}; \cite{komissarov2013}). Thus unless the striped zone fills almost the entire wind volume, additional magnetic dissipation inside the nebula is required.  
+
+
+\subsection{Insights from 3D simulations of PWN}
+
+With the discussion of the previous sections, the setup of a PWN simulation becomes straight-forward:  
+First the total energy flux of the wind $f_{\rm tot}(r,\theta)$ needs to be chosen. Typically the energy flux is assumed to follow the Poynting flux of the aligned (\ref{eq:michelpower}) or perpendicular rotator (\ref{eq:obliquesr}), however more sophisticated formulas for oblique rotators are now also being applied \citep[see][]{BuhlerGiomi2016}.  
+Then the striped zone is modelled by choosing an appropriate function for $\chi_\alpha(\theta)$.  Here the prescriptions of various groups differ somewhat (c.f. Eq. (5) of \cite{PorthKomissarov2013}, and Eq. (2) of \cite{2014MNRAS.438.1518O}).  Employing {\cred (\ref{eq:chi})}, the magnetic and kinetic energy fluxes follow to
+\begin{align}
+	f_{\rm m}(r,\theta) = \sigma(\theta)\frac{f_{\rm tot}(r,\theta)}{1+\sigma(\theta)};\ \ f_{\rm k}(r,\theta) = \frac{f_{\rm tot}(r,\theta)}{1+\sigma(\theta)}\, .
+\end{align}
+With the assumed wind Lorentz-factor $\Gamma$, one can then solve for the density and magnetic field strength of the cold wind ($p\ll\rho$) 
+\begin{align}
+\rho(r,\theta) = f_{\rm k}(r,\theta)/(\Gamma^2c^2v_{r});\ \ B_{\phi}(r,\theta)=\pm\sqrt{4\pi f_{\rm m}(r,\theta)/v_r}
+\end{align}
+where we have taken advantage of the toroidal approximation.  Note that the magnetic field still reverses polarity from the northern to the southern hemisphere which gives rise to a magnetic null line within the nebula bubble.  Concerning the Lorentz-factor $\Gamma$ it was shown (e.g. \cite{komissarov2004}) that a value of $\Gamma\sim10$ is sufficient to approximate the ultra-relativistic shock with sufficient accuracy.  
+Finally, the outer nebula boundary is modelled by assuming a supersonically expanding hydrodynamic shell of stellar ejecta with velocities at the inner edge $\sim1000\rm km s^{-1}$ (e.g. \cite{del-zanna2004}).  
+
+Contrary to axisymmetric simulations, the 3D case allows the magnetic field to deform and develop a poloidal component.  Since injection of fresh toroidal field competes with fluid instabilities in the downstream flow, whether the telltale jet-and-torus structure can also be established in 3D is not entirely obvious.  
+In Figure \ref{fig:spaghetti}, a rendering of field lines from 3D simulations illustrates the process.  Indeed, toroidally dominated field is present only in the direct vicinity of the TS.  
+The strong jets observed for $\sigma=1$ in axisymmetric simulations do not survive in 3D. In fact, the jet rapidly becomes unstable to the $m=1$ kink instability as predicted by \cite{begelman1998}.  None the less, outflow velocities in the polar plume reach $\approx0.7c$, similar to the pattern speeds observed in Crab ($\sim 0.4c$) \citep{hester2002} and Vela (0.3c-0.7c) \citep{PavlovTeter2003}.  
+
+An overview of the large-scale dynamics in the 3D models is given in Figure \ref{fig:slices}.  As the z-pinch is rapidly destroyed, the total pressure is now more or less uniform and resembles the purely hydrodynamic models even for highly magnetised wind.  
+Only at the base of the plumes flow compression is significantly enhanced.  
+Because of the dramatically altered magnetic field distribution in the nebula, the termination shock does not dive back towards the pulsar and values compatible with the hydrodynamic prediction leading to Eq. (\ref{eq:rtshydro}) could be found even for $\sigma_0=3,\alpha=45^\circ$ \citep{PorthKomissarov2014a}.  
+The magnetic field strength exhibits a large range with maximal values in the ``arch flow '' just on top/below the oblique TS.  As long as axisymmetry is approximately conserved, the magnetic field strength follows the scalings discussed in section \ref{sec:nebula}, hence the magnetic energy density increases until reaching equipartition with the plasma pressure.  Throughout the torus region, the magnetic field remains strong and toroidally dominated, however fluid instabilities in the fast equatorial shear flow lead to turbulence starting at $\approx 2 $ shock radii.  It is interesting to note that the shock compresses streamlines that carry magnetic field with opposing polarity towards the equator, turning the null-line into a large-scale current sheet.  It is in this current sheet where the majority of magnetic dissipation takes place, a fact that was already observed in 2D simulations of \cite{camus2009}.  
+
+A  closeup view of the TS is shown in Figure \ref{fig:slices-sigma} illustrating a typical flow field.  In the vicinity of the TS, the predictions from axisymmetric calculations remain largely valid:  We obtain a separation of flow lines into equatorial and polar flow.  Velocities in the fast equatorial shear flow reach up to $\approx0.5c$.  Re-focussing of flow lines from the polar regions forms a plume-like vertical outflow and an inner highly unstable ``polar beam''.  Due to the kink instability of the polar beam, the actual formation of the jet is offset from the TS -- in good agreement with the observations.  This dynamical behaviour also suggests an identification of the ``Sprite'' (see e.g. SECTION XX) located at the base of the jet  with the violently unstable polar flow.  
+It is interesting to note that (similar to the 1D KC84 model) due to expansion and deceleration of streamlines carrying a toroidal field, the magnetisation of the flow in mid-latitude regions can in fact increase over the value injected at the TS.  The high $\sigma$ regions in the nebula volume might present suitable locations for rapid particle acceleration in connection with the Crab flares \citep[e.g.][]{LyutikovSironi2016}.  Recent advances in modelling the elusive Crab flares will be discussed further in SECTION ZZ.  
+
+
 \subsection{Radiative predictions from particle transport models      (OP, AL, EA)}
 \label{sec:radiation}
 
-While the general non-thermal emission processes in PWN were rapidly identified, namely synchrotron radiation from non-thermal electrons and inverse Compton scattering {\cblue of ambient radiation by} the very same electrons \citep{shklovsky:1953,dombrovsky1954nature,atoyan1996}, ever increasing spatial and temporal resolution ask for more and more refined models of the PWN emission.
+While the general non-thermal emission processes in PWN were rapidly identified, namely synchrotron radiation from non-thermal electrons and inverse Compton scattering of ambient radiation by the very same electrons \citep{shklovsky:1953,dombrovsky1954nature,atoyan1996}, ever increasing spatial and temporal resolution ask for more and more refined models of the PWN emission.
 In their core, current emission models follow the suggestion of \cite{kennel1984}, that non-thermal electrons are accelerated at the TS and then follow streamlines in the nebula where they experience adiabatic and radiative losses.  In the optical and X-ray bands where the cooling timescale is comparable to the crossing time, this promotes a ``center-filled'' appearance and gradual steepening of the X-ray spectral index, observed especially in young PWN \citep[e.g.][]{SlaneChen2000,SlaneHelfand2004}.  
 Sophisticated methods to track the distribution of non-thermal particles injected at the TS via passive tracer scalars were devised \citep{del-zanna2006,camus2009} and are now standard practice in MHD simulations of PWN.
-{\cblue While acceleration at the TS appears as} a good working assumption, the details of the particle acceleration {\cblue process} are far from understood and {\cblue the large inferred acceleration efficiency appears} in conflict with the superluminal nature of the shock {\cblue in the framework of standard models}.  
-This will be discussed further in section {\cblue \ref{sec:wispacc}} where the observational signatures of various acceleration sites on the shock are compared.
+While acceleration at the TS appears as a good working assumption, the details of the particle acceleration process are far from understood and the large inferred acceleration efficiency appears} in conflict with the superluminal nature of the shock in the framework of standard models.  
+This will be discussed further in section \ref{sec:wispacc} where the observational signatures of various acceleration sites on the shock are compared.
 
-On the qualitative level, synthetic maps of synchrotron emission from PWN are able to reproduce a stunning amount of features: foremost the famous jet-and-torus morphology {\cblue whose} dynamical origins were previously discussed, but also finer details seen primarily in the high resolution observations of the Crab nebula.  We highlight the aforementioned sprite, the inner knot {\cred (sections XX and ZZ)} and the wisps {\cred (section YY)}.
+On the qualitative level, synthetic maps of synchrotron emission from PWN are able to reproduce a stunning amount of features: foremost the famous jet-and-torus morphology whose dynamical origins were previously discussed, but also finer details seen primarily in the high resolution observations of the Crab nebula.  We highlight the aforementioned sprite, the inner knot {\cred (sections XX and ZZ)} and the wisps (section \ref{sec:wispacc}).
 As the details of energy injection into the PWN are intimately related to fundamental parameters of the rotating neutron star, one can attempt to constrain pulsar parameters with the morphology of the synchrotron emission in the nebula \citep[e.g.][]{BuhlerGiomi2016}.  
 In this vein, in figure \ref{fig:maps}, we show synthetic emission maps of the region around the TS from two 3D simulations: one with parameters $\sigma_0=3,\alpha=10^\circ$ (left) and one with $\sigma_0=1,\alpha=45^\circ$ (right).  While the right-hand panel provides a good match to the morphology of Crab, the torus structure is entirely suppressed in the left-hand panel which might find its likeness in one of the jet-dominated sources \citep[][]{KargaltsevPavlov2008}.  This result is not surprising: as the extent of the striped zone is decreased, more streamlines are re-focussed into the jet (cf. figure 14 of \cite{PorthKomissarov2014a}).  The recent 3D simulations presented by \cite{Olmi2016} confirm this finding.  Hence the jet/torus flux ratio could yield a valuable handle on the pulsar obliqueness.  
 
-On the quantitative level, some progress could be made recently with detailed modeling of the inner knot of Crab nebula by \cite{YuanBlandford2015} and \cite{LyutikovKomissarov2016}.  [WE CAN REMOVE THIS, I DON'T MEAN TO STEAL YOUR THUNDER]  If the knot-feature is caused by beamed emission right behind the TS, then the local magnetisation must be $\sigma<1$, otherwise the {\cblue observed properties} of the knot cannot be reproduced.  For an inclination of the Crab pulsar of $60^\circ$ with respect to the plane of the sky and an assumed obliqueness angle of $45^\circ$, the knot falls into the striped zone and low post-shock magnetisation is in fact expected.  
+On the quantitative level, some progress could be made recently with detailed modeling of the inner knot of Crab nebula by \cite{YuanBlandford2015} and \cite{LyutikovKomissarov2016}.  [WE CAN REMOVE THIS, I DON'T MEAN TO STEAL YOUR THUNDER]  If the knot-feature is caused by beamed emission right behind the TS, then the local magnetisation must be $\sigma<1$, otherwise the observed properties of the knot cannot be reproduced.  For an inclination of the Crab pulsar of $60^\circ$ with respect to the plane of the sky and an assumed obliqueness angle of $45^\circ$, the knot falls into the striped zone and low post-shock magnetisation is in fact expected.  
 
 Moving away from the TS, the uncertainties in radiative models increase:  currently, the synthetic maps tend to over-predict the contrast between torus and ambient emission, as well as the optical and radio polarization degree.  For example, the unresolved polarization degree of the Crab nebula in the optical band is $\Pi=9.3\pm0.3\%$ \citep{OortWalraven1956}, whereas the simulations produce an over three times higher value.
 Both effects are related, e.g. with decreasing emissivity in the ordered-field torus region as compared to the turbulent bulk, the average polarization will also decrease.  
 This points at several potential shortcomings of the current 3D models:  
-1. Their short duration does not allow the {\cblue dense filaments due to the Rayleigh-Taylor instability to develop and penetrate deep into the nebula, an effect that} would likely increase the randomization of magnetic field.  
+1. Their short duration does not allow the dense filaments due to the Rayleigh-Taylor instability to develop and penetrate deep into the nebula, an effect that would likely increase the randomization of magnetic field.  
 2. The finite resolution global simulations might over-predict the dissipation of magnetic field in the bulk.
-3. The prescription of {\cblue localized acceleration, occurring at the TS only, as in the KC84 original model, is possibly overly simplified and particle re-acceleration in the bulk might have to be taken into account.}
-Future {\cblue higher resolution and longer duration} 3D simulations will need to address these questions.  
+3. The prescription of  localized acceleration, occurring at the TS only, as in the KC84 original model, is possibly overly simplified and particle re-acceleration in the bulk might have to be taken into account.
+Future higher resolution and longer duration 3D simulations will need to address these questions.  
 
 Due to the inherent complexity of the data, emission maps from dynamical simulations are not well suited to constrain parameters of PWN, and steps to reduce the dimensionality must be taken.  In this sense, \cite{volpi2008} fitted the spectral energy distribution (SED) of axisymmetric MHD simulations to the Crab nebula, taking into account two species of synchrotron emitting particles (radio- and optical/Xray-electrons) and realistic target photon fields for the IC emission.  
 The result can be understood as a different flavour of the $\sigma$-problem:  
@@ -32,6 +198,6 @@ An alternative technique to the advection of passive tracer scalars was followed
 D_{\rm Ls} \sim \frac{1}{3} v_f L_{\rm s} = 2.1 \times 10^{27}\left(\frac{v_f}{0.5c}\right)\left(\frac{L_{\rm s}}{0.42\rm Ly}\right)\ \rm cm^2~s^{-1}\, .\label{eq:DE}
 \end{align}
 is suggested following the turbulence with driving scale $L_{\rm s}$ -- the size of the termination shock, and a typical velocity at this scale $v_f$.  
-Note that the value of $D_{\rm Ls}$ for Crab nebula becomes very similar to {\cblue the one estimated by \citep{AmatoEtAl00} and also to} that obtained in the early model due to \cite{WeinbergSilk1976} of $1.9 \times 10^{27}\rm cm^2 s^{-1}$.  
+Note that the value of $D_{\rm Ls}$ for Crab nebula becomes very similar to the one estimated by \citep{AmatoEtAl00} and also to that obtained in the early model due to \cite{WeinbergSilk1976} of $1.9 \times 10^{27}\rm cm^2 s^{-1}$.  
 As particles are mostly following the velocity field, e.g. the  first order drift velocity in the toroidally dominated regions $\mathbf{v}_D=\mathbf{E\times B}/B^2$ just corresponds to the flow velocity in the poloidal plane $\mathbf{v}_D=\mathbf{v}_p$, the diffusive transport is independent of the particle energy, as assumed already in the models of \cite{gratton1972,Wilson1972}.  Further discussion on diffusion in PWN can be found in \citep{tang2012}. 
  With the spherically averaged MHD simulation as background, the particle transport taking into account advection, diffusion and synchrotron losses, can be fitted to X-ray observations of three young PWN confirming that diffusion makes an important contribution in PWN. In particular, the model of \cite{PorthVorster2016} yields better fits to the gradual increase of the X-ray spectral index than a traditional KC84 model.  
