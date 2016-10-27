@@ -24,4 +24,5 @@ subsection_Theory_The_Crab_nebula__.tex
 section_Inner_knot_of_the__.tex
 figures/hst/hst.png
 The_discovery_of_the_jet__.tex
+The_first_computer_generated_models__.tex
 problems.tex
