@@ -26,5 +26,4 @@ figures/hst/hst.png
 subsection_Theoretical_model_of_the__.tex
 figures/f2/f2.png
 figures/f4/f4.png
-figures/f5/f5.png
 problems.tex
