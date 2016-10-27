@@ -20,7 +20,7 @@ figures/cfr-cases/cfr-cases.png
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
-subsection_Recent_theoretical_studies_of__.tex
+subsection_Theory_The_Crab_nebula__.tex
 subsection_Observational_results_of_the__.tex
 figures/hst/hst.png
 problems.tex
