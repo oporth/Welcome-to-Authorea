@@ -8,8 +8,8 @@ PWN are customarily modelled under assumption of ideal magnetohydrodynamics (MHD
 
 MHD can be applied if sufficient plasma is available to screen the electric field: $\mathbf{E\cdot B=0}$.  Seminal works of \cite{deutsch1955,1969ApJ...157..869G} indicate that this is a good working assumption as an electromagnetic cascade develops that fills the ``gaps'' of unscreened electric fields with freshly created pair-plasma \citep{Sturrock1971}.  
 The number density of pairs divided by the minimal density required to screen the electric fields in the co-moving frame is known as pulsar multiplicity $\kappa$.  
-Due to the supply of conducting magnetospheric plasma, the early vacuum oblique dipole models \citep[e.g.][]{pacini1967,Ostriker:1969} are not applicable, rather can the pulsar be thought of as a \emph{unipolar inductor} whose rotation drives a current system.  Torque from the $\mathbf{j\times B}$ Lorentz force of the current flowing parallel to  the neutron star surface serves to spin down the pulsar and extracts energy carried away in the form of Poynting flux.  
-In the limit that EM contributions are stronger than pressure, inertial and gravitational forces, plasma can be considered force-free, that is the EM forces balance exactly: 
+Due to the supply of conducting magnetospheric plasma, the early vacuum oblique dipole models \citep[e.g.][]{pacini1967,Ostriker:1969} are not applicable, rather can the pulsar be thought of as a \emph{unipolar inductor} which rotation drives a current system.  Torque from the $\mathbf{j\times B}$ Lorentz force of the current flowing parallel to  the neutron star surface serves to spin down the pulsar and extracts energy carried away in the form of Poynting flux.  
+In the limit that EM contributions are stronger than pressure, inertial and gravitational forces, plasmas can be considered force-free, that is the electromagnetic (EM) forces balance exactly: 
 \begin{align}
 \frac{1}{c}\, \mathbf{j\times B}+\rho_e \mathbf{E}=0\ . \label{eq:force-free}
 \end{align}
@@ -23,7 +23,7 @@ The important point to note here is that the energy flux is highly anisotropic $
 After long struggle, a solution to the at first glance unimposing equation (\ref{eq:force-free}) for more realistic \emph{dipolar} stellar field was obtained numerically by \cite{1999ApJ...511..351C}.  
 Most notably, the dipole field rips open at the light cylinder radius $\varpi_{\rm LC} = c/\Omega$ and a radial wind streams out similar to Michel's solution i.e. with $\mathcal{S}_r\propto \sin^2\theta$.  This general result for the aligned rotator has been confirmed and improved on by many groups \citep{2004MNRAS.349..213G,2005PhRvL..94b1101G,2006MNRAS.368L..30M,ParfreyBeloborodov2012,RuizPaschalidis2014}.  
 As the polarity of the dipole field reverses across hemispheres, so does the wound-up toroidal field, giving rise to an equatorial current-sheet.  The ensuing dissipation violates the ideal MHD condition $\mathbf{E\cdot B=0}$ and also force-freeness must break down locally as magnetic dominance cannot be maintained.  
-It was noted already by \cite{coroniti1990} that the current sheet can play an important role in the dynamics of the wind as a whole.  In case the magnetic axis is mis-aligned with the pulsar (oblique rotator), the current-sheet assumes a wavy or \emph{striped}-shape.  Dissipation, dynamics and particle acceleration of the striped wind is subject to active research and worthy of a review of its own \citep[see ][]{arons2012}.  We shall return to this issue below.  
+It was noted already by \cite{coroniti1990} that the current sheet can play an important role in the dynamics of the wind as a whole.  In the more generic case where the magnetic axis is mis-aligned with the pulsar (oblique rotator), the current-sheet assumes a wavy or \emph{striped}-shape.  Dissipation, dynamics and particle acceleration of the striped wind is subject to active research and worthy of a review of its own \citep[see ][]{arons2012}.  We shall return to this issue below.  
 
 The first force-free model of an \emph{oblique} dipole magnetosphere was presented by \cite{spitkovsky2006} and has been confirmed by several groups and methodologies \citep{kalapotharakos2012,2016MNRAS.455.3779P,2016MNRAS.457.3384T}.  Its salient features are the complex geometry of the  striped wind \citep[as predicted by][]{Michel1971} and the dependence of the spin-down power on the obliquity angle $\alpha$
 \begin{align}
@@ -50,7 +50,7 @@ Motivated by the success of Michel's solution, we assume that the wind predomina
   \partial_r(r^2 B_r) &= 0 \label{eq:divb}\ .
 \end{align}
 %
-Adopting an ideal equation of state with adiabatic index $\hat{\gamma}$ we write the enthalpy-density $\omega=\rho c^2+\hat{\gamma}/(\hat{\gamma}-1) p $.  In the above equations, the wind Poynting flux is given by $\mathbf{\mathcal{S}} = \mathbf{E \times B}$.
+From top to bottom, these equations describe the conservation of mass, momentum and energy combined, the induction equation and the lack of magnetic monopoles. Adopting an ideal equation of state with adiabatic index $\hat{\gamma}$ we write the enthalpy-density $\omega=\rho c^2+\hat{\gamma}/(\hat{\gamma}-1) p $.  In the above equations, the wind Poynting flux is given by $\mathbf{\mathcal{S}} = \mathbf{E \times B}$.
 
 Let's derive some useful relations for the stationary system, setting $\partial_t=0$.
 From the $\mathbf{\nabla\cdot B}=0$ constraint (\ref{eq:divb}), we immediately see that the radial field must decay as $B_r\propto r^{-2}$.    From the induction-law (\ref{eq:induction}) together with the ideal MHD electric field $E_\theta=B_\phi v_r-B_r v_\phi$ and $B_r\propto r^{-2}$, we obtain a first conservation law:
@@ -78,14 +78,14 @@ is recovered.  It is clear that the Lorentz factor of the wind cannot exceed the
 \end{align}
 which compares the Poynting flux with the kinetic energy of the wind.  In the cold limit $\omega\to \rho c^2$, we have $\mu=\Gamma(1+\sigma)$ which shows that accelerating the wind goes hand-in-hand with decreasing its magnetization.
 
-As we shall see later, the value for $\sigma$ at the TS as inferred from 1D and 2D models is $\sigma\sim10^{-3}-10^{-2}$.  Quite in contrast, models for the pulsar magnetosphere predict highly magnetised plasma with $\sigma\sim10^3$ \citep[e.g.][and references therein]{arons2012}.  
+As we shall see later, the value for $\sigma$ at the termination shock (TS) as inferred from 1D and 2D models is $\sigma\sim10^{-3}-10^{-2}$.  Quite in contrast, models for the pulsar magnetosphere predict highly magnetised plasma with $\sigma\sim10^3$ \citep[e.g.][and references therein]{arons2012}.  
 The conversion of magnetic energy to kinetic energy in both confined and unconfined winds has been a subject of intensive research.  
 Although claims have been made that the ideal MHD acceleration can provide the required energy conversion, \cite[e.g.][]{vlahakis2004}, it is now widely accepted that relativistic MHD flows are very inefficient accelerators \citep[e.g.][]{2009MNRAS.394.1182K,2009ApJ...699.1789T,lyubarsky2009,Lyubarsky2010} and can achieve $\sigma\approx1$ at best.  
 The discrepancy between $\sigma$ obtained via MHD acceleration of the unconfined wind and the magnetization inferred from PWN models is known as the $\sigma$-Problem.  
 
 \subsection{Termination shock}
 
-Like the solar wind, the pulsar wind terminates when its dynamic pressure equals the thermal pressure of the surrounding shocked medium, i.e. the pulsar wind nebula.  
+Like the solar wind, the pulsar wind terminates when its dynamic pressure equals the thermal pressure of the surrounding shocked medium, i.e. the pulsar wind nebula.   The outside medium can be the supernova remnant (plerion case), the interstellar medium (high velocity pulsar case) or the wind of a massive star (gamma-ray binary case, see section \ref{sec:gammabinary}).
 As the observations suggest very low magnetisation in the PWN, we will adopt a hydrodynamical model for some basic estimates.  A typical scale for ram-pressure balance is readily found: $r_0=\left(\frac{L}{4\pi p c}\right)^{1/2}$ with $p$ the pressure of the nebular plasma.  If energy is supplied to the PWN at a constant rate $L$ and its contact discontinuity evolves according to $r_{\rm n}(t)\propto t^{\alpha_{\rm r}}$ (where we will adopt $\alpha_{\rm r}=6/5$ \citep{Chevalier1977}), adiabatic expansion of the ultrarelativistic shocked PWN implies $\dot{E} = L-\alpha_{\rm r}\frac{E}{t}$.  Thus the energy accumulated over time in the PWN bubble is
 \begin{align}
 E= \frac{L t}{1+\alpha_{\rm r}}
