@@ -144,11 +144,11 @@ Then the striped zone is modelled by choosing an appropriate function for $\chi_
 \begin{align}
 	f_{\rm m}(r,\theta) = \sigma(\theta)\frac{f_{\rm tot}(r,\theta)}{1+\sigma(\theta)};\ \ f_{\rm k}(r,\theta) = \frac{f_{\rm tot}(r,\theta)}{1+\sigma(\theta)}\, .
 \end{align}
-With the assumed wind Lorentz-factor $\Gamma$, one can then solve for the density and magnetic field strength of the cold wind ($p\ll\rho$) 
+Adopting the wind Lorentz-factor $\Gamma$, one can then solve for the density and magnetic field strength of the cold wind ($p\ll\rho$) 
 \begin{align}
 \rho(r,\theta) = f_{\rm k}(r,\theta)/(\Gamma^2c^2v_{r});\ \ B_{\phi}(r,\theta)=\pm\sqrt{4\pi f_{\rm m}(r,\theta)/v_r}
 \end{align}
-where we have taken advantage of the toroidal approximation.  Note that the magnetic field still reverses polarity from the northern to the southern hemisphere which gives rise to a magnetic null line within the nebula bubble.  Concerning the Lorentz-factor $\Gamma$ it was shown (e.g. \cite{komissarov2004}) that a value of $\Gamma\sim10$ is sufficient to approximate the ultra-relativistic shock with sufficient accuracy.  
+where we have taken advantage of the toroidal approximation.  Note that the magnetic field still reverses polarity from the northern to the southern hemisphere which gives rise to a magnetic null line within the nebula bubble.  Due to numerical reasons, a realistic Lorentz-factor of $\sim10^5$ cannot be realised in the simulations which typically set $\Gamma\sim10$.  In the hydrodynamic regime, it can be shown (e.g. \cite{komissarov2004}) that the jump conditions of the ultrarelativistic shock are fairly well approximated already at this low value of $\Gamma$.  
 Finally, the outer nebula boundary is modelled by assuming a supersonically expanding hydrodynamic shell of stellar ejecta with velocities at the inner edge $\sim1000\rm km s^{-1}$ (e.g. \cite{del-zanna2004}).  
 
 Contrary to axisymmetric simulations, the 3D case allows the magnetic field to deform and develop a poloidal component.  Since injection of fresh toroidal field competes with fluid instabilities in the downstream flow, whether the telltale jet-and-torus structure can also be established in 3D is not entirely obvious.  
