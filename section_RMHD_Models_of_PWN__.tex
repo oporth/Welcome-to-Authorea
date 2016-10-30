@@ -40,19 +40,20 @@ Recent global particle-in-cell (PIC) simulations now confirm that given sufficie
 \subsection{Wind zone}
 
 To estimate the plasma-parameters in the PWN, it is instructive to first study a 1D description of the wind flow.  
-Motivated by the success of Michel's solution, we assume that the wind predominantly streams out in spherical r-direction, $\mathbf{B}=B_r\mathbf{\hat{e}}^r+B_\phi\mathbf{\hat{e}}^\phi$, $\mathbf{v}=v_r\mathbf{\hat{e}}^r+v_\phi\mathbf{\hat{e}}^\phi$, the relevant equations describing the flow are
+Motivated by the success of Michel's solution, we assume that the wind predominantly streams out in spherical r-direction, $\mathbf{B}=B_r\mathbf{\hat{e}}^r+B_\phi\mathbf{\hat{e}}^\phi$, $\mathbf{v}=v_r\mathbf{\hat{e}}^r+v_\phi\mathbf{\hat{e}}^\phi$, the relevant equations describing the stationary flow are
 %
 \begin{align}
-  \partial_t(\Gamma \rho) + r^{-2} \partial_r(r^2\Gamma \rho v_r) &= 0 \label{eq:continuity} \\
-  \partial_t(\omega \Gamma^2 v_\phi + \mathcal{S}_\phi) + r^{-3}\partial_r(r^3(\omega v_\phi v_r \Gamma^2-B_\phi B_r)) &= 0 \label{eq:mphi}\\
-  \partial_t(E) + r^{-2}\partial_r(r^2 (\omega \Gamma^2 v_r + \mathcal{S}_r)) &= 0 \label{eq:energy} \\
-  \partial_t(B_\phi) + r^{-1}\partial_r(r E_\theta) &= 0 \label{eq:induction} \\
+  r^{-2} \partial_r(r^2\Gamma \rho v_r) &= 0 \label{eq:continuity} \\ %\partial_t(\Gamma \rho) + 
+  r^{-3}\partial_r(r^3(\omega v_\phi v_r \Gamma^2-B_\phi B_r)) &= 0 \label{eq:mphi}\\ %\partial_t(\omega \Gamma^2 v_\phi + \mathcal{S}_\phi) + 
+  r^{-2}\partial_r(r^2 (\omega \Gamma^2 v_r + \mathcal{S}_r)) &= 0 \label{eq:energy} \\ %\partial_t(E) + 
+  r^{-1}\partial_r(r E_\theta) &= 0 \label{eq:induction} \\ %\partial_t(B_\phi) + 
   \partial_r(r^2 B_r) &= 0 \label{eq:divb}\ .
 \end{align}
 %
+which describe conservation of mass, angular-momentum, energy, Faraday's law of induction and the $\mathbf{\nabla\cdot B}=0$ constraint.  
 Adopting an ideal equation of state with adiabatic index $\hat{\gamma}$ we write the enthalpy-density $\omega=\rho c^2+\hat{\gamma}/(\hat{\gamma}-1) p $.  In the above equations, the wind Poynting flux is given by $\mathbf{\mathcal{S}} = \mathbf{E \times B}$.
 
-Let's derive some useful relations for the stationary system, setting $\partial_t=0$.
+Let's derive some useful relations from the system (\ref{eq:continuity}) - (\ref{eq:divb}).  
 From the $\mathbf{\nabla\cdot B}=0$ constraint (\ref{eq:divb}), we immediately see that the radial field must decay as $B_r\propto r^{-2}$.    From the induction-law (\ref{eq:induction}) together with the ideal MHD electric field $E_\theta=B_\phi v_r-B_r v_\phi$ and $B_r\propto r^{-2}$, we obtain a first conservation law:
 \begin{align}
   r\Omega \equiv v_\phi - v_r \frac{B_\phi}{B_r} \label{eq:romega}
