@@ -13,6 +13,7 @@ figures/cfr-cases/cfr-cases.png
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
+subsection_Do_the_flares_originate__.tex
 figures/hst/hst.png
 subsection_Theoretical_models_for_the__.tex
 section_Gamma_ray_binaries_pulsar__.tex
