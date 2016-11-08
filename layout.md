@@ -14,6 +14,7 @@ observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
 figures/hst/hst.png
+figures/knotGammaVsDist/knotGammaVsDist.png
 subsection_Theoretical_models_of_the__.tex
 section_Gamma_ray_binaries_pulsar__.tex
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
