@@ -13,6 +13,7 @@ figures/cfr-cases/cfr-cases.png
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
+figures/hst/hst.png
 subsection_Theoretical_models_for_the__.tex
 section_Gamma_ray_binaries_pulsar__.tex
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
@@ -21,7 +22,6 @@ figures/ls5039_full_light/ls5039_full_light.png
 figures/emission_map/emission_map.png
 figures/all_curves/all_curves.png
 section_Inner_knot_of_the__.tex
-figures/hst/hst.png
 The_discovery_of_the_jet__.tex
 The_first_computer_generated_models__.tex
 One_of_the_most_prominent__.tex
