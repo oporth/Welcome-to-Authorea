@@ -13,10 +13,8 @@ figures/cfr-cases/cfr-cases.png
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
-subsection_Do_the_flares_originate__.tex
 figures/hst/hst.png
 subsection_Theoretical_models_of_the__.tex
-section_Gamma_ray_binaries_pulsar__.tex
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 figures/gamma_binary3/gamma_binary3.png
 figures/ls5039_full_light/ls5039_full_light.png
@@ -38,4 +36,5 @@ figures/f8/f8.png
 The_shape_of_the_knot__.tex
 figures/f9/f9.png
 In_these_calculations_it_was__.tex
+section_Gamma_ray_binaries_pulsar__.tex
 problems.tex
