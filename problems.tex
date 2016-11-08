@@ -1,50 +1,43 @@
-\section{Solved and unsolved problems      (OP, AL, BO,SK,EA,RB)}
+\section{Discussion}
+%      (OP, AL, BO,SK,EA,RB)
 \label{sec:discussion}
 
-I suggest we all contribute to the lists first and polish the discussion later (SSK). 
+Over the past two decades, modelling of PWN has lead to a good understanding of the plasma flow in these systems. Predominantly they have focused on the Crab nebula.  The global plasma flow and dynamics are qualitaticelly understood. The origin of its jet, the torus, the inner knot and the wisps are understood. However, other features as the knots of the inner ring or the ``thin wisp'' \cite{Hester_1995} are not present in the simulations. Also, the morphology of other PWN appears to be more complex. In the Vela PWN for instance, the receeding jet is brighter that the one pointed to the observer.
 
-\subsection{Solved problems:}
+Recently, an important step forward was done by simulating the Nebula in 3D. The magnetic dissipation at the termination shock and 3D randomisation of magnetic field leads to magnetic dissipation  inside PWN. This removes the constrain imposed on the low wind magnetization of pulsar wind by 1D and 2D axisymmetric models and is likely the solution to the longstanding ``sigma problem''.
 
-\textbf{1) Overall dynamics of inner Crab is well described by RMHD models. The origin of Jet and Torus is well understood. Wisps and knot are explained too.}
+As always a deeper understanding comes with many new questions. Also, several older questions remained unanswered. We will summarize the ones we consider most important in the following: 
 
-EA on item 1: We have explained all these in a framework in which the wind energy dependence was $\sin^2\theta$. What happens with $\sin^4\theta$? Can our simulations of the nebular dynamics distinguish between the two scenarios?
+\begin{enumerate}
 
-OP: I don't think we can distinguish in the dynamical simulations.  As shown by \cite{LyutikovKomissarov2016}, e.g. Figure 2, the differences in the radial and vertical extent of the shock are on the few percent level in a stationary model.  In a dynamical simulation it then becomes again harder to filter this effect out, see e.g. Figure 3 of \cite{BuhlerGiomi2016}, there is a small effect which makes the shock more equatorially elongated for $\sin^4\theta$ but I don't see a smoking gun.  
+\item \textbf{Where and how does non-thermal particle acceleration take place? How does the particle spectrum evolve in the nebula, particularly along the termination shock? }
 
-RB: There are still some puzzling morphological things not captured by the RMHD simulations. In particular, the knots and brightness profile of the inner ring is never reproduced. This feature is particularly important, as we usually think of it as the first radiative signature of the wind (together with the inner knot). Another structure which does not appear in the simulations is the "thin wisp" north of the pulsar (see e.g. \cite{Hester_1995}). Also, if we think of the inner Vela PWN, why the backside jet is much brighter than the one coming towards us is very puzzling. Also, the shape Geminga PWN is not explained.
+Magnetic reconnection apperas to be the main process by which particles are accelerated in the nebula. It remains unclear where and how this happens. It is also uncler is shock acceleration takes place at particular latitudes of the reverse shock and what the contribution of second order fermi acceleration within the body of the nebula is.
 
-\textbf{2) The sigma-problem seems resolved. The magnetic dissipation at the termination shock, 3D randomisation and dissipation of magnetic field inside PWN removes the constrain imposed on the sigma of pulsar wind by 1D and 2D axisymmetric models.}
+\item \textbf{What is the effect of the feedback of the acceleration on the plasma flow?}
 
-EA on item 2, including future work: while qualitatively it is true that the sigma problem seems resolved, it remains to be seen what are the conditions for magnetic dissipation to occur exactly in the right amount: what worries me is on the one hand the brightness contrast between the jets, torus and rest of the nebula, and on the other hand the fact that extrapolation of preliminary 3D results on the magnetic field strength to the nebula actual age leads to infer too low a field and hence again the problem of reproducing the broad band spectrum of the nebula, including Inverse Compton.
-Clarifying this issue quantitatively has broad implications on our ability to constrain the width of the striped region (and hence the inclination angle of the pulsar) in different objects and also the pulsar multiplicity. 
+As a significant fraction of the energy goes into accelerating particles, the back reaction should be important. To date, only test particle simulations have been performed, neglectic the feedback of the accelerated particles on the global plasma flow. The simple ideal MHD approximations will need to be extended to a more realistic plasma description.
 
-OP: I would like to maintain that the sigma-problem as a well-posed MHD problem is solved, e.g. the shock sizes are now quantitatively comparable to the observations.  Quantitative agreement for the spectra and brightness contrast is another problem which is harder since it also depends on the particles.  If we are honest, we don't even have the tools to attack this problem rigorously.  But you are right, it is important to point out these problems.  
+\item \textbf{Where whithin the nebulae do the gamma-ray flares originate? Are these exceptional events with little impact on the overall evolution/emission of PWN or a high-energy tail of main dissipative processes?  }
 
+Significant progress has been made on understanding the procecess that can lead to explosive gamma-ray flares. However, if and where within the nebula these processes happen remains unclear. It is puzzeling that no gamma-ray flares have been discovered from any other isolated PWN. It is not clear if similar processes are responsible for Crab nebula flares and the flares of the binary PSR B1259-63.
 
-\subsection{Unsolved problems:}
+\item \textbf{What is the origin of radio electrons? Are they supplied by the pulsar wind and if not then why the spectrum of emission does not show a discontinuity between the radio and optical parts? }
 
-\textbf{1) Is there a non-thermal particle acceleration at the termination shock? The Crab's inner knot is the brightest part of region near the shock filled with freshly supplied plasma. Its spectrum should reveal the shock physics. }
+The hard energy spectrum of the radio emitting electrons suggests that they are accelerated via magnetic reconnection. However, where these electrons come from remains an open question. If the electrons are provided by the wind, their large number is in conflict with magnetospheric models. An alternative is that electrons are stripped from the gas and dust in the Nebula's filaments.
 
-EA: I would rephrase the question in terms of \underline{where} along the termination shock particle acceleration actually occurs. It must occur there somewhere, at least at the highest energies, otherwise I do not think one can understand the size shrinkage of the nebula with increasing frequency. 
-The knot highlights the physics of a small fraction of the shock surface, and that the properties of the shock as an accelerator must change along the surface is clearly showed even only by the multiwavelength properties of the wisps (see Olmi et al 15) if these are to be interpreted in a pure MHD framework. However it certainly deserves our attention because it is the closest probe we have to the surface of a relativistic shock front and could provide us with direct insight into its physics. 
+\item \textbf{What is the structure of termination shock in the polar region? }
 
+In the polar region the pulsar wind has no stripes and hence a very high magnetization is expected both upstream and downstream of the termination shock. It is unclear what the fate of the hihgly-magnetized flow injected into the nebula in this region and if its magnetic energy can be dissipated on a light-crossing time.
 
-\textbf{2) The signatures of magnetic dissipation in PWN spectra. Are there any?  Where are the particle acceleration/magnetic reconnection sites? Can the magnetic reconnection explain the observed spectra of PWN? }
+\item \textbf{How many electrons/positron escape into the ISM, with which energies? Can PWN potentially explain the positron excess?}
 
-EA: I think the closest thing we have to a signature of magnetic reconnection is the very flat spectrum showed by the radio emitting particles. Indeed a picture in which particle acceleration occurs due to reconnection in a striped wind would smoothly connect the spectra at low and high energies. Only: the parameters do not seem right in Crab, at least on average. But of course except for the highest energies, only very local conditions at the shock surface are relevant.
+The interaction of PWN with the sourrounding medium is complex, as they evolve within the remanant of their projenitors explosions. It is unclear how many electrons can escape the magnetic confinement of these systems and if their number is sufficient to explai the positron excess observed at Earth.
 
-RB: What is the effect of the feedback of the acceleration on the plasma flow? As a significant fraction of the energy goes into accelerating particles, the back reaction should be important.
+\item \textbf{Is an energetically significant amount of non-thermal  ions present in PWN?}
 
-\textbf{3) What do gamma-ray flares tell us about the dissipation/particle acceleration in PWN. Are these exceptional events with little impact on the overall evolution/emission of PWN or a high-energy tail of main dissipative processes. Where in the nebula do these flares come from?  }
+To date, no obserervational signatire of ions has been found in PWN. Due to the low radiation efficiency of iones, there could still be an energetically significant number of ions present.
 
-AL: The flares seen in gamma-ray binary PSR B1259-63 have no clear origin.  They have been found after the  2011 and 2014 periastron passages, which indicates that specific conditions are met for the the flares to happen. However, the flares occur about 60 days after periastron, when the pulsar is already quite far from the disc and star, so seed photons for IC are less numerous. While some Doppler boost probably occurs, this is does not seem to correspond to any particular configuration of the flow/shocks with respect to the observer.
+\end{enumerate}
 
-\textbf{4) What is the origin of radio electrons? Are they supplied by the pulsar wind and if not then why the spectrum of emission does not show a discontinuity between the radio and optical parts? }
-
-EA: what are the alternatives if they are not supplied by the pulsar wind? Primordial or extracted from filaments? My objection to filaments is that we see the same spectrum (flat) in bow shock PWN where there are no Rayleigh-Taylor filaments. In addition in this case the particles would be only electrons: can we exclude this instance through circular polarization measurements? As for a primordial origin: in 2D this could be excluded in the absence of reacceleration, but the large scale structure of the nebula is much more complex in 3D and the more turbulent motions that develop might help spread primordial electrons throughout the nebula. The spectral continuity would still be a mystery.
-
-\textbf{5) What is the structure of TS in the polar region where the pulsar wind has no stripes and hence a very high magnetization is expected both upstream and downstream of the TS. What is the fate of the hihgly-magnetized flow injected into the nebula in the polar region. Does the magnetic dissipation destroy it on a light-crossing time? }
-
-\textbf{6) How many electrons/positron escape into the ISM, with which energies? Can PWN potentially explain the positron excess?}
-
-\textbf{7) Is an energetically significant amount of non-thermal  ions present in PWN?}
+The search for answers of these questions is ongoing. Fortunately, deeper observations and increasingly realistic simulations are powerful tools at our disposal in this quest.
