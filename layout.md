@@ -14,6 +14,7 @@ observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 subsection_Theoretical_models_of_the__.tex
 figures/knot_sed/knot_sed.png
+subsection_Do_the_flares_originate__1.tex
 figures/hst/hst.png
 figures/knotGammaVsDist/knotGammaVsDist.png
 figures/knotCorr/knotCorr.png
