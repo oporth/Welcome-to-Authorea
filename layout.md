@@ -13,11 +13,10 @@ figures/cfr-cases/cfr-cases.png
 observations.tex
 figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
-subsection_Do_the_flares_originate__1.tex
+subsection_Theoretical_models_of_the__.tex
 figures/hst/hst.png
 figures/knotGammaVsDist/knotGammaVsDist.png
 figures/knotCorr/knotCorr.png
-subsection_Theoretical_models_of_the__.tex
 section_Gamma_ray_binaries_pulsar__.tex
 figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 figures/gamma_binary3/gamma_binary3.png
