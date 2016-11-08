@@ -21,7 +21,7 @@ figures/gamma_binary3/gamma_binary3.png
 figures/ls5039_full_light/ls5039_full_light.png
 figures/emission_map/emission_map.png
 figures/all_curves/all_curves.png
-The_discovery_of_the_jet__.tex
+section_Inner_knot_of_the__.tex
 The_first_computer_generated_models__.tex
 One_of_the_most_prominent__.tex
 figures/f6/f6.png
