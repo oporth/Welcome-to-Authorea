@@ -15,8 +15,8 @@ figures/crab_mwlc_09-05-2016/crab_mwlc_09-05-2016.png
 figures/knot_sed/knot_sed.png
 figures/hst/hst.png
 subsection_Theoretical_models_of_the__.tex
-figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 section_Gamma_ray_binaries_pulsar__.tex
+figures/PSRB_spectrum_broadband-eps-converted-to/PSRB_spectrum_broadband-eps-converted-to.png
 figures/gamma_binary3/gamma_binary3.png
 figures/ls5039_full_light/ls5039_full_light.png
 figures/emission_map/emission_map.png
